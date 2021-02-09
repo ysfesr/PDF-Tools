@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class=''>
+    <div class="grid content-center gap-4 m-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class='bg-white rounded-lg shadow-lg p-4 text-center'>
+            <p class='text-center text-xl font-sans font-semibold'>Information About a PDF</p>
+            <p class='text-center text-sm text-gray-500 my-3'>extracte: author, creator, producer, subject, title and number of pages</p>
+            <a href="{% url 'info' %}" class="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-black uppercase transition bg-gray-100 rounded shadow ripple hover:shadow-lg hover:bg-gray-200 focus:outline-none">Check it</a>
+        </div>
+        
+        <div class='bg-white rounded-lg shadow-lg p-4 text-center'>
+            <p class='text-center text-xl font-sans font-semibold'>Merge PDF</p>
+            <p class='text-center text-sm text-gray-500 my-3'>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+            <a href="{% url 'merge' %}" class="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-black uppercase transition bg-gray-100 rounded shadow ripple hover:shadow-lg hover:bg-gray-200 focus:outline-none">Check it</a>
+        </div>
+
+        
+    </div>
+</div>
+{% endblock content %}

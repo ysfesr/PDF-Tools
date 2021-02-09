@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Info{% endblock title %}
+{% block content %}
+<div class="bg-white rounded-lg shadow-lg m-6 p-6 text-center font-semibold">
+    <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="file">Select a file:</label>
+        <input type="file" name="file" id="file">
+        <button type="submit" class='inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-black uppercase transition bg-gray-100 rounded shadow ripple hover:shadow-lg hover:bg-gray-200 focus:outline-none'>Submit</button>
+    </form>
+</div>
+{% if results %}
+<div class="bg-white rounded-lg shadow-lg m-6 p-6  font-semibold">
+    
+    <table class="">
+    <tbody>
+        <tr>
+        
+        <td><b>AUTHOR:</b></td>
+        <td>{{author}}</td>
+        </tr>
+        <tr class="bg-emerald-200">
+        <td><b>CREATOR:</b></td>
+        <td>{{creator}}</td>
+        </tr>
+        <tr>
+        <td><b>PRODUCER:</b></td>
+        <td>{{producer}}</td>
+        </tr>
+        <tr>
+        <td><b>SUBJECT:</b></td>
+        <td>{{subject}}</td>
+        </tr>
+        <tr>
+        <td><b>TITLE:</b></td>
+        <td>{{title}}</td>
+        </tr>
+        <tr>
+        <td><b>NUMBER OF PAGE:</b></td>
+        <td>{{nbr_page}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+{% endif %}
+{% if msg %}
+<div class="bg-red-500 text-center rounded-lg shadow-lg m-6 p-6 text-white font-semibold">
+    <p>Try to add a file</p>
+</div>
+{% endif %}
+{% endblock content %}

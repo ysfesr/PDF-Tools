@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Merge{% endblock title %}
+{% block content %}
+{% if msg %}
+<div class="bg-red-500 text-center rounded-lg shadow-lg m-6 p-6 text-white font-semibold">
+    <p>Try to add more than one file</p>
+</div>
+{% endif %}
+<div class="bg-white rounded-lg shadow-lg m-6 p-6 text-center font-semibold">
+    <p>Please upload pdf documents by order.</p><br>
+    <form method="post" enctype="multipart/form-data" action="">{% csrf_token %}
+        <label for="file1">File 1:</label>
+        <input type="file" name="file1" id="file1"><br><br>
+        <label for="file2">File 2:</label>
+        <input type="file" name="file2" id="file2"><br><br>
+        <label for="file3">File 3:</label>
+        <input type="file" name="file3" id="file3"><br><br>
+        <label for="file4">File 4:</label>
+        <input type="file" name="file4" id="file4"><br><br>
+        <label for="file5">File 5:</label>
+        <input type="file" name="file5" id="file5"><br><br>
+        <button type="submit" class='inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-black uppercase transition bg-gray-100 rounded shadow ripple hover:shadow-lg hover:bg-gray-200 focus:outline-none'>Submit</button>
+    </form>
+</div>
+{% endblock content %}
