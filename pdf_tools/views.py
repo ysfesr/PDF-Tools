@@ -2,11 +2,21 @@ from django.shortcuts import render
 from .utils import *
 import os
 from django.http import FileResponse
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def tools(request):
+    context = {}
+    
 
 def home(request):
     context = {}
-    return render(request, 'home.html', context)
+    if request.user.is_authenticated:
+        return render(request, 'tools.html', context)
+    else:
+        return render(request, 'home.html', context)
 
+@login_required
 def info(request):  
     if request.method == 'POST':
         try:
@@ -18,7 +28,8 @@ def info(request):
         return render(request, "pdf_tools/info.html", context)
     else:  
         return render(request,"pdf_tools/info.html",{"results":False, "msg":False}) 
-    
+
+@login_required  
 def merge(request):
     if request.method == "POST":
         f_list= []
